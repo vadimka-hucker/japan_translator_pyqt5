@@ -1,14 +1,41 @@
-# This is a sample Python script.
+from cv2 import cv2
+import pytesseract
+from googletrans import Translator
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Test commit')  # Press Ctrl+F8 to toggle the breakpoint.
+translator = Translator()  # Обозначаем переводчик
+config = r'--oem 3 --psm 6 -l jpn'  # Задаём параметры перевода
+pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'  # Указываеи путь к tesseract
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def translate(image_path, pronun=False, lang='en'):
+    """Функция перевода текста"""
+    img = cv2.imread(image_path)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    result = translator.translate(text=pytesseract.image_to_string(img,
+                                                                   config=config).
+                                  replace('\n', '').replace('.', '. ').replace(' ', '').replace('', ''),
+                                  src='ja',
+                                  dest='en')
+
+    original_text = result.origin
+    pronunciation_text = str(
+        translator.translate(text=pytesseract.image_to_string(img,
+                                                              config=config).
+                             replace('\n', '').replace('.', '. ').replace(' ', '').replace('', ''),
+                             src='ja',
+                             dest='ja').pronunciation)
+
+    if lang != 'en':
+        result = translator.translate(result.text, src='en', dest=lang)
+
+    if pronun:
+        print(f'{original_text}  "{pronunciation_text}"  --> {result.text}')
+    else:
+        print(f'{original_text} --> {result.text}')
+
+    return result.text
+
+
+translate(image_path='C:\\Users\\ASUS\\PycharmProjects\\school project\\3.png', pronun=False, lang='en')
+translate(image_path='C:\\Users\\ASUS\\PycharmProjects\\school project\\7.png', pronun=True, lang='ru')
+translate(image_path='C:\\Users\\ASUS\\PycharmProjects\\school project\\4.jpg', pronun=False, lang='de')
