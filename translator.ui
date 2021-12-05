@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
+    <width>551</width>
     <height>450</height>
    </rect>
   </property>
@@ -25,16 +25,80 @@
    </iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QCheckBox" name="checkBox">
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>481</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Nirmala UI</family>
+      <pointsize>22</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(154, 231, 231);
+</string>
+    </property>
+    <property name="text">
+     <string>こんにちは!  —  Здравствуйте!</string>
+    </property>
+    <property name="margin">
+     <number>15</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="icon_label">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>0</y>
+      <width>71</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 0, 0, 255), stop:0.479904 rgba(255, 0, 0, 255), stop:0.522685 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="japan_text_edit">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>320</y>
+      <width>231</width>
+      <height>87</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="translated_text_edit">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>320</y>
+      <width>231</width>
+      <height>87</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="pronunciationBox">
     <property name="enabled">
      <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>220</y>
-      <width>111</width>
-      <height>20</height>
+      <x>300</x>
+      <y>120</y>
+      <width>158</width>
+      <height>22</height>
      </rect>
     </property>
     <property name="font">
@@ -52,13 +116,13 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="translate_btn">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>260</y>
-      <width>111</width>
-      <height>31</height>
+      <y>270</y>
+      <width>158</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="font">
@@ -82,39 +146,13 @@
      </size>
     </property>
    </widget>
-   <widget class="QScrollArea" name="scrollArea">
+   <widget class="QComboBox" name="languageBox">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>310</y>
-      <width>221</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgba(154, 231, 231, 255), stop:1 rgba(255, 255, 255, 255));</string>
-    </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
-    </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>219</width>
-       <height>99</height>
-      </rect>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>220</y>
-      <width>111</width>
-      <height>21</height>
+      <x>10</x>
+      <y>110</y>
+      <width>158</width>
+      <height>24</height>
      </rect>
     </property>
     <property name="font">
@@ -138,26 +176,13 @@
      </property>
     </item>
    </widget>
-   <widget class="QProgressBar" name="progressBar">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>270</y>
-      <width>351</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>24</number>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>190</y>
-      <width>111</width>
-      <height>21</height>
+      <x>10</x>
+      <y>80</y>
+      <width>158</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -169,93 +194,48 @@
      <string>Язык перевода:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>480</width>
-      <height>70</height>
+      <x>300</x>
+      <y>90</y>
+      <width>191</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Nirmala UI</family>
-      <pointsize>26</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(154, 231, 231);
-</string>
-    </property>
-    <property name="text">
-     <string>こんにちは!  —  Здравствуйте!</string>
-    </property>
-    <property name="margin">
-     <number>15</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>80</y>
-      <width>210</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>13</pointsize>
+      <pointsize>9</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Прикрепите фотографию:</string>
+     <string>Дополнительные функции:</string>
     </property>
    </widget>
-   <widget class="QScrollArea" name="scrollArea_2">
+   <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>310</y>
-      <width>231</width>
-      <height>101</height>
+      <x>260</x>
+      <y>70</y>
+      <width>31</width>
+      <height>351</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgba(154, 231, 231, 255), stop:1 rgba(255, 255, 255, 255));
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(154, 231, 231, 255), stop:1 rgba(255, 255, 255, 255));</string>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
     </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
-    </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents_2">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>229</width>
-       <height>99</height>
-      </rect>
-     </property>
-    </widget>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QPushButton" name="choose_file_btn">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>0</y>
-      <width>71</width>
-      <height>71</height>
+      <x>300</x>
+      <y>150</y>
+      <width>191</width>
+      <height>28</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 0, 0, 255), stop:0.479904 rgba(255, 0, 0, 255), stop:0.522685 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
-     <string/>
+     <string>Прикрепить фотографию</string>
     </property>
    </widget>
   </widget>
