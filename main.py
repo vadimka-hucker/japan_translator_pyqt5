@@ -16,6 +16,7 @@ def translate(image_path, pronun=False, lang='en'):
                                   replace('\n', '').replace('.', '. ').replace(' ', '').replace('', ''),
                                   src='ja',
                                   dest='en')
+    print(result)
 
     original_text = result.origin
     pronunciation_text = str(
@@ -31,11 +32,10 @@ def translate(image_path, pronun=False, lang='en'):
     if pronun:
         print(f'{original_text}  "{pronunciation_text}"  --> {result.text}')
     else:
+
         print(f'{original_text} --> {result.text}')
 
     return result.text
 
 
-translate(image_path='C:\\Users\\ASUS\\PycharmProjects\\school project\\3.png', pronun=False, lang='en')
-translate(image_path='C:\\Users\\ASUS\\PycharmProjects\\school project\\7.png', pronun=True, lang='ru')
-translate(image_path='C:\\Users\\ASUS\\PycharmProjects\\school project\\4.jpg', pronun=False, lang='de')
+translate(image_path='C:\\Users\\Mikhail\\Desktop\\test.png')

@@ -2,6 +2,10 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 import PyQt5.uic
+from main import translator
+from cv2 import cv2
+import pytesseract
+from googletrans import Translator
 
 
 class MainWindow(QMainWindow):
@@ -20,6 +24,9 @@ class MainWindow(QMainWindow):
 
         # Подключаем кнопки
         self.choose_file_btn.clicked.connect(self.on_choose_file_btn)
+
+        a = translator(image_path='C:\\Users\\Mikhail\\Desktop\\3.png', pronun=False, lang='en')
+        self.translated_text_edit.setPlainText(a)
 
     def initUI(self):
         PyQt5.uic.loadUi('translator.ui', self)
